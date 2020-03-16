@@ -4,7 +4,7 @@
   "description": "Simple RFC 6838 media type parser and formatter",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc --reporter=html --reporter=text mocha --recursive --require @babel/register  tests/ --exit",
     "clean": "rm -rf dist",
     "start": "npm run build && node dist/",
     "build": "npm run clean && babel src --out-dir dist",
