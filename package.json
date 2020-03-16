@@ -1,0 +1,42 @@
+{
+  "name": "@node-rest/mediattype-parser",
+  "version": "1.0.0",
+  "description": "Simple RFC 6838 media type parser and formatter",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "start": "npm run build && node dist/",
+    "build": "npm run clean && babel src --out-dir dist",
+    "lint": "eslint --ignore-path .eslintignore src/",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/node-rest/mediatype-parser.git"
+  },
+  "keywords": [
+    "media",
+    "type",
+    "parser"
+  ],
+  "author": "Terungwa Kombol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkterungwa16/mediatype-parser/issues"
+  },
+  "homepage": "https://github.com/rkterungwa16/mediatype-parser#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/register": "^7.8.6",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0"
+  }
+}
