@@ -39,5 +39,8 @@
     "eslint-plugin-import": "^2.20.1",
     "mocha": "^7.1.0",
     "nyc": "^15.0.0"
+  },
+  "dependencies": {
+    "mime-db": "^1.43.0"
   }
 }
