@@ -25,6 +25,8 @@ export function test (mediaType) {
 
 /**
  * Parse media type to object.
+ * example media type: application/json
+ * parsed object: { type: application, subtype: json, subtype: undefined }
  * Object will contain type, subtype and suffix as per RFC6838 specification
  *
  * @param {string} mediaType
@@ -43,8 +45,8 @@ export function parse (mediaType) {
 
     const index = subtype.lastIndexOf("+");
     if (index !== -1) {
-        suffix = subtype.substr(index + 1);
-        subtype = subtype.substr(0, index);
+        suffix = subtype.substring(index + 1);
+        subtype = subtype.substring(0, index);
     }
 
     return {
