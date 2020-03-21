@@ -1,6 +1,6 @@
 import assert from "assert";
 import { describe, it } from "mocha";
-import { mediatype } from "../src";
+import { parse } from "../src";
 
 const invalidTypes = [
     " ",
@@ -17,20 +17,20 @@ const invalidTypes = [
 
 describe("Parse", () => {
     it("should parse text media type with html subtype", () => {
-        mediatype.parse("text/html");
+        const mediatype = parse("text/html");
         assert.strictEqual(mediatype.type, "text");
         assert.strictEqual(mediatype.subtype, "html");
     });
 
     it("should parse image media type with subtype svg and suffix xml", () => {
-        mediatype.parse("image/svg+xml");
+        const mediatype = parse("image/svg+xml");
         assert.strictEqual(mediatype.type, "image");
         assert.strictEqual(mediatype.subtype, "svg");
         assert.strictEqual(mediatype.suffix, "xml");
     });
 
     it("should lower-case type", () => {
-        mediatype.parse("IMAGE/SVG+XML");
+        const mediatype = parse("IMAGE/SVG+XML");
         assert.strictEqual(mediatype.type, "image");
         assert.strictEqual(mediatype.subtype, "svg");
         assert.strictEqual(mediatype.suffix, "xml");
@@ -38,18 +38,18 @@ describe("Parse", () => {
 
     invalidTypes.forEach((type) => {
         it(`should throw on invalid media type ${JSON.stringify(type)}`, () => {
-            assert.throws(mediatype.parse.bind(null, type), /invalid media type/);
+            assert.throws(parse.bind(null, type), /invalid media type/);
         });
     });
 
     it("should require argument", () => {
         const requiredString = () => {
-            mediatype.parse();
+            parse();
         };
-        assert.throws(requiredString, new TypeError("argument string is required"));
+        assert.throws(requiredString, new TypeError("argument mediaType is required"));
     });
 
     it("should reject non-strings", () => {
-        assert.throws(mediatype.parse.bind(null, 7), /string.*required/);
+        assert.throws(parse.bind(null, 7), /mediaType.*required/);
     });
 });
