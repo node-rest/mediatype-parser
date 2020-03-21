@@ -1,6 +1,6 @@
 import assert from "assert";
 import { describe, it } from "mocha";
-import { parse } from "../src";
+import { parse } from "../src/mediatype-parser";
 
 const invalidTypes = [
     " ",
